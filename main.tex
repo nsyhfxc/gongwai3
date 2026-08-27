@@ -1,167 +1,24 @@
-\documentclass[12pt,UTF8]{ctexart} % 使用ctexart文档类,UTF8编码,字体大小为12pt
+\documentclass[AutoFakeBold,12pt,UTF8]{ctexart} 
+\usepackage{config}
 
-% 中文与排版
-\usepackage{ctex}
-\usepackage{geometry}
-\geometry{a4paper, left=2cm,right=2cm,top=2cm,bottom=2cm} % 页边距设置
-\usepackage{pdfpages}
-
-% 数学与符号
-\usepackage{amsmath, amssymb, mathtools} % 数学公式与符号支持
-\everymath{\displaystyle}
-\usepackage{multicol}
-\usepackage{enumitem}
-%引用上标显示
-\usepackage{subcaption}
-
-\let\oldcite\cite
-\renewcommand{\cite}[1]{\textsuperscript{\oldcite{#1}}}
-
-
-\usepackage{xcolor}                                 % 引入定制颜色的xcolor
-\definecolor{LightBlue}{RGB}{250, 255, 255}        % 自定义颜色LightBlue
-\usepackage{tcolorbox}                              % 引入tcolorbox宏包
-\tcbuselibrary{breakable, most, skins, theorems} 
-\newtcolorbox{question}[2][breakable] {             % 定义解答和问题的样式
-	colback = LightBlue,
-	colframe = cyan, 
-	fonttitle = \bfseries,  
-	title = #2, #1
-}
-\newenvironment{solution}{\noindent{\textbf{{\color{cyan}One Possible Version}}}\quad}
-
-
-% 定义choices环境
-\newlist{choices}{enumerate}{1}
-%\setlist[choices,1]{
-	%	label=\Alph*.,
-	%	leftmargin=2em,
-	%	itemsep=0.3em,
-	%	topsep=0.3em
-	%}
-\setlist[choices,1]{label=\Alph*., leftmargin=1em, itemsep=0em}
-\usepackage{multicol}
-
-
-
-% 图形与绘图
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
-
-% 列表与枚举
-\usepackage{enumitem}
-\setlist[enumerate,1]{label=\arabic*.}
-
-% 表格
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{array}
-
-% 附录与浮动体
-\usepackage{appendix}
-\usepackage{float}
-
-% 颜色与高亮
-\usepackage{xcolor}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-\definecolor{orange}{RGB}{255,127,0}
-
-% 代码环境
-\usepackage{listings}
-\lstset{
-	frame=tb,
-	aboveskip=2mm,
-	belowskip=2mm,
-	showstringspaces=false,
-	columns=flexible,
-	framerule=1pt,
-	rulecolor=\color{gray!35},
-	backgroundcolor=\color{gray!5},
-	basicstyle={\footnotesize\ttfamily\baselineskip=0.9\baselineskip},
-	keywordstyle=\color{blue},
-	commentstyle=\color{dkgreen},
-	stringstyle=\color{mauve},
-	breaklines=true,
-	breakatwhitespace=true,
-	tabsize=4,
-	numbers=left,
-	numberstyle=\scriptsize,
-	stepnumber=1,
-	lineskip=-1pt,
-}
-
-
-% 标题与超链接
-\usepackage[breaklinks,colorlinks,bookmarksnumbered,linkcolor=black,urlcolor=blue]{hyperref}
-
-% 段落与行距
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
-\usepackage{setspace}
-\renewcommand{\baselinestretch}{1.5}
-
-% 目录深度设置
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
-
+% 标题、作者、日期
 \title{河北工程大学 \ 大学英语(3)课本题目合订本}
-\author{河北工程大学 \ 信息与电气工程学院 \\ 计算机2501姜振坤}
+\author{\href{https://github.com/nsyhfxc}{GitHub@nsyhfxc}}
 \date{\today}
 
 \begin{document}
 
-\maketitle
-\textbf{请见文档说明}\footnote{\color{red}公益项目,完全免费,请勿进行售卖盈利,其他项目可见\href{https://github.com/nsyhfxc}{本人的GitHub仓库}}
+\input{chapter/index.tex}
+%封面设置
 
-\textbf{听力部分补充说明}\footnote{每小题的正确选项已作加粗标红处理}
-
-\begin{center}
-	\zihao{2}
-	\color{red}
-	\fbox{\textbf{本\quad 合\quad 订\quad 本\quad 完\quad 全\quad 免\quad 费\quad 使\quad 用}}
-\end{center}
-
-\vspace{4em}
-
-\begin{figure}[H]
-	\centering
-	\begin{minipage}[c]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.95\textwidth]{figure/logo.png} 
-		\label{fig:sample-figure-a}
-	\end{minipage}
-	\begin{minipage}[c]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.95\textwidth]{figure/xindian.png} 
-		\label{fig:sample-figure-b}
-	\end{minipage}
-	%\caption{多图并排示例}
-	\label{fig:sample-figure}
-\end{figure}
-
-\thispagestyle{empty}
-\newpage
-\setcounter{page}{1} 
-\tableofcontents
-
+\input{chapter/listening.tex}
 
 \newpage
 
-\setcounter{page}{1} 
-\zihao{-4}
-\input{chapter/Listening.tex}
+\input{chapter/bankedcloze.tex}
+
 \newpage
 
-\input{chapter/BankedCloze.tex}
-\newpage
-
-\input{chapter/Translation.tex}
-\newpage
-
-
-
+\input{chapter/translation}
 
 \end{document}
